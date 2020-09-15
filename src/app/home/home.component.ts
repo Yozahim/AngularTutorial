@@ -18,8 +18,13 @@ export class HomeComponent implements OnInit {
   constructor(private dishService: DishService, private promotionService: PromotionService) { }
 
   ngOnInit(): void {
-    this.promotion = this.promotionService.getFeaturedPromotion()
-    this.dish = this.dishService.getFeaturedDish()
+    this.promotionService.getFeaturedPromotion()
+      .then((promotion) => {this.promotion = promotion})
+      .catch(err => console.error(err))
+
+    this.dishService.getFeaturedDish()
+      .then((dish) => this.dish = dish)
+      .catch(err => console.error(err))
   }
 
 }
