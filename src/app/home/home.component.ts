@@ -19,12 +19,12 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.promotionService.getFeaturedPromotion()
-      .then((promotion) => {this.promotion = promotion})
-      .catch(err => console.error(err))
+      .subscribe((promotion) => {this.promotion = promotion})
+      // .catch(err => console.error(err))
 
     this.dishService.getFeaturedDish()
-      .then((dish) => this.dish = dish)
-      .catch(err => console.error(err))
+      .subscribe((dish) => this.dish = dish)
+      // .catch(err => console.error(err))
   }
 
 }
