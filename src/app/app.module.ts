@@ -16,7 +16,7 @@ import { MatSelectModule } from '@angular/material/select'
 import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { MatSliderModule } from '@angular/material/slider'
-
+import { HttpClientModule } from '@angular/common/http'
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -26,6 +26,7 @@ import { DishdetailComponent } from './dishdetail/dishdetail.component';
 
 import { DishService } from './services/dish.service';
 import { PromotionService } from './services/promotion.service'
+import { ProcessHTTPMsgService } from './services/process-httpmsg.service'
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
@@ -37,6 +38,8 @@ import { ContactComponent } from './contact/contact.component';
 
 import { AppRoutingModule }  from './app-routing/app-routing.module';
 import { LoginComponent } from './login/login.component';
+
+import { baseUrl } from './shared/baseurl'
 
 @NgModule({
   declarations: [
@@ -70,11 +73,14 @@ import { LoginComponent } from './login/login.component';
     MatSelectModule,
     MatSlideToggleModule,
     MatProgressSpinnerModule,
-    MatSliderModule
+    MatSliderModule,
+    HttpClientModule
   ],
   providers: [
     DishService,
-    PromotionService
+    PromotionService,
+    ProcessHTTPMsgService,
+    { provide: 'BaseUrl', useValue: baseUrl }
   ],
   entryComponents: [
     LoginComponent
