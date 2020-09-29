@@ -3,12 +3,17 @@ import { Dish } from '../shared/dish'
 import { DishService } from '../services/dish.service'
 import { Promotion } from '../shared/promotion'
 import { PromotionService } from '../services/promotion.service'
-
+import { flyInOut, expand } from '../animations/app.animation'
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  animations: [ flyInOut(), expand() ],
+  host: {
+    '[@flyInOut]': 'true',
+    'style': 'display: block'
+  }
 })
 export class HomeComponent implements OnInit {
 
