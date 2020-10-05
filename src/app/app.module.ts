@@ -40,7 +40,8 @@ import { AppRoutingModule }  from './app-routing/app-routing.module';
 import { LoginComponent } from './login/login.component';
 
 import { baseUrl } from './shared/baseurl';
-import { HighlightDirective } from './directives/highlight.directive'
+import { HighlightDirective } from './directives/highlight.directive';
+import { ContactSubmittedFormComponent } from './contact-submitted-form/contact-submitted-form.component'
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { HighlightDirective } from './directives/highlight.directive'
     AboutComponent,
     ContactComponent,
     LoginComponent,
-    HighlightDirective
+    HighlightDirective,
+    ContactSubmittedFormComponent
   ],
   imports: [
     BrowserModule,

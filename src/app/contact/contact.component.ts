@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { Feedback, ContactType } from '../shared/feedback'
 import { flyInOut } from '../animations/app.animation'
+import { MatDialog } from '@angular/material/dialog'
+import { ContactSubmittedFormComponent } from '../contact-submitted-form/contact-submitted-form.component'
 
 @Component({
   selector: 'app-contact',
@@ -48,7 +50,10 @@ export class ContactComponent implements OnInit {
     }
   }
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    public dialog: MatDialog
+    ) {
     this.createForm()
   }
 
@@ -73,7 +78,7 @@ export class ContactComponent implements OnInit {
 
   onSubmit() {
     this.feedback = this.feedbackForm.value
-    // console.log(this.feedback)
+    this.openSubmittedForm(this.feedback)
     this.feedbackForm.reset({
       firstname: '',
       lastname: '',
@@ -104,6 +109,11 @@ export class ContactComponent implements OnInit {
         }
       }
     }
+  }
+
+  openSubmittedForm(dataToPass) {
+    console.log('data to pas',dataToPass)
+    this.dialog.open(ContactSubmittedFormComponent, {height: '450px', width: '450px', data: dataToPass})
   }
 
 }

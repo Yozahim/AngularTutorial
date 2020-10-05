@@ -1,0 +1,16 @@
+<mat-dialog-content fxFlex class="form-size">
+<mat-list fxLayout="column" fxFlexOffset="20px">
+      <span class="half-width">Name: {{ form.firstname }}</span>
+      <span class="half-width">Lastname: {{ form.lastname }}</span>
+      <span class="half-width">Tel: {{ form.telnum }}</span>
+      <span class="half-width">Email: {{ form.email }}</span>
+      <span class="half-width">Agree?: {{ form.agree }}</span>
+      <span class="half-width">Cotact type: {{ form.contacttype }}</span>
+      <span class="half-width">Message: {{ form.message }}</span>
+    </mat-list>  
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <span class="flex-spacer"></span>
+  <button mat-button type="submit" class="background-primary text-floral-white" (click)="onSubmit()">Go back</button>
+</mat-dialog-actions>
